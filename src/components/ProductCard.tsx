@@ -43,7 +43,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           )}
           {isShortage && (
-            <div className="flex items-center gap-1 rounded-md bg-red-600/95 backdrop-blur-xs px-2.5 py-1 text-[11px] font-bold text-white shadow-xs">
+            <div className="flex items-center gap-1 rounded-md bg-rose-600/95 backdrop-blur-xs px-2.5 py-1 text-[11px] font-bold text-white shadow-xs">
               <AlertTriangle className="h-3 w-3" />
               <span>{t.shortageWarning}</span>
             </div>
@@ -103,7 +103,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           <div className="text-right">
-            <span className={`text-xs font-semibold tabular-nums ${isShortage ? 'text-red-600' : 'text-emerald-700'}`}>
+            <span className={`text-xs font-semibold tabular-nums ${isShortage ? 'text-rose-600' : 'text-emerald-700'}`}>
               {product.quantityAvailable} {t.remaining}
             </span>
             <div className="text-[10px] text-neutral-400">

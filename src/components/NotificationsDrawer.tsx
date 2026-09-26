@@ -32,7 +32,7 @@ export const NotificationsDrawer: React.FC<NotificationsDrawerProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-neutral-100 p-5 bg-neutral-50/80">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-red-600">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
               <Bell className="h-4 w-4" />
             </div>
             <div>
@@ -83,7 +83,7 @@ export const NotificationsDrawer: React.FC<NotificationsDrawerProps> = ({
                   <div className="flex items-start gap-3">
                     <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ${
                       isShortage 
-                        ? 'bg-red-100 text-red-600' 
+                        ? 'bg-rose-100 text-rose-700' 
                         : isWaste 
                         ? 'bg-amber-100 text-amber-600'
                         : 'bg-emerald-100 text-emerald-700'
@@ -118,7 +118,7 @@ export const NotificationsDrawer: React.FC<NotificationsDrawerProps> = ({
                     </div>
 
                     {!notif.read && (
-                      <span className="h-2 w-2 rounded-full bg-red-600 shrink-0 mt-1.5" />
+                      <span className="h-2 w-2 rounded-full bg-emerald-600 shrink-0 mt-1.5" />
                     )}
                   </div>
                 </div>

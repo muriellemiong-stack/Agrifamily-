@@ -43,8 +43,8 @@ export const INITIAL_PRODUCTS: Product[] = [
     priceUSD: 14,
     unit: 'Caisse de 25 kg',
     unitEn: 'Crate of 25 kg',
-    quantityAvailable: 18,
-    minShortageThreshold: 20, // Shortage alert active!
+    quantityAvailable: 45,
+    minShortageThreshold: 15,
     harvestDate: '2026-09-24',
     shelfLifeDays: 7,
     image: tomatoesImg,
@@ -175,13 +175,13 @@ export const INITIAL_PRODUCTS: Product[] = [
 export const INITIAL_NOTIFICATIONS: AppNotification[] = [
   {
     id: 'notif_1',
-    titleFr: 'Alerte Pénurie Imminente',
-    titleEn: 'Imminent Shortage Alert',
-    messageFr: 'Votre stock de "Tomates Rondes Fraîches" est à 18 kg (seuil de sécurité: 20 kg). Réapprovisionnez votre inventaire.',
-    messageEn: 'Your "Fresh Vine Tomatoes" inventory is down to 18 kg (safety threshold: 20 kg). Update your stock.',
+    titleFr: 'Inventaire Récoltes Sécurisé',
+    titleEn: 'Harvest Inventory Secured',
+    messageFr: 'Toutes vos récoltes en hangar disposent d’un stock optimal au-dessus des seuils de sécurité.',
+    messageEn: 'All crops in storage currently have healthy stock levels above safety thresholds.',
     time: 'Il y a 12 min',
     read: false,
-    type: 'shortage',
+    type: 'message',
     targetTab: 'inventory'
   },
   {

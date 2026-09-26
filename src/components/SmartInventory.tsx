@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Boxes, AlertTriangle, Sparkles, Plus, Edit2, Check, X, ShieldAlert, ArrowUpRight, TrendingDown } from 'lucide-react';
+import { Boxes, AlertTriangle, Sparkles, Plus, Edit2, Check, X, ShieldAlert, ShieldCheck, ArrowUpRight, TrendingDown } from 'lucide-react';
 import { Product, Language, User } from '../types';
 import { translations } from '../data/translations';
 import defaultHarvestImg from '../assets/images/agri_tomatoes_harvest_1790423474584.jpg';
@@ -151,28 +151,42 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         {/* Shortage Alarm Box */}
-        <div className="rounded-2xl border border-red-200 bg-red-50/80 p-4">
-          <div className="flex items-start gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-red-600 text-white">
-              <AlertTriangle className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="font-bold text-red-950 text-sm">
-                {language === 'fr' ? 'Surveillance Automatique des Pénuries' : 'Automated Shortage Monitoring'}
-              </h3>
-              <p className="mt-1 text-xs text-red-800">
-                {shortageItems.length > 0 ? (
-                  <>
-                    <strong className="font-bold">{shortageItems.length} {language === 'fr' ? 'produit(s) en rupture imminente :' : 'product(s) in shortage :'}</strong>{' '}
-                    {shortageItems.map(p => language === 'fr' ? p.name : p.nameEn).join(', ')}.
-                  </>
-                ) : (
-                  language === 'fr' ? 'Aucune pénurie détectée. Tous vos stocks dépassent le seuil de sécurité.' : 'No shortages detected. All inventory exceeds safety levels.'
-                )}
-              </p>
+        {shortageItems.length > 0 ? (
+          <div className="rounded-2xl border border-rose-200 bg-rose-50/80 p-4 transition-all">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-rose-600 text-white shadow-xs">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-bold text-rose-950 text-sm">
+                  {language === 'fr' ? 'Alerte Stock : Pénurie Imminente' : 'Stock Alert: Imminent Shortage'}
+                </h3>
+                <p className="mt-1 text-xs text-rose-800">
+                  <strong className="font-bold">{shortageItems.length} {language === 'fr' ? 'produit(s) sous le seuil de sécurité :' : 'crop(s) below safety threshold :'}</strong>{' '}
+                  {shortageItems.map(p => language === 'fr' ? p.name : p.nameEn).join(', ')}.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4 transition-all">
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-xs">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-bold text-emerald-950 text-sm">
+                  {language === 'fr' ? 'Surveillance des Stocks : Niveau Optimal' : 'Stock Monitoring: Optimal Status'}
+                </h3>
+                <p className="mt-1 text-xs text-emerald-800">
+                  {language === 'fr'
+                    ? 'Aucune pénurie détectée. L’ensemble de vos récoltes stockées dépasse vos seuils de sécurité.'
+                    : 'No shortages detected. All your stored harvest stock exceeds configured safety thresholds.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Post-harvest Waste Prevention Box */}
         <div className="rounded-2xl border border-amber-200 bg-amber-50/80 p-4">
@@ -225,7 +239,7 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
                       referrerPolicy="no-referrer"
                     />
                     {isShort && (
-                      <div className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-white text-[9px] font-bold">
+                      <div className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-rose-600 text-white text-[9px] font-bold">
                         !
                       </div>
                     )}
@@ -237,7 +251,7 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
                         {language === 'fr' ? prod.name : prod.nameEn}
                       </h4>
                       {isShort ? (
-                        <span className="rounded-md bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5">
+                        <span className="rounded-md bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5">
                           {t.statusShortage}
                         </span>
                       ) : (
@@ -332,7 +346,7 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
                         </button>
 
                         <div className="text-center min-w-16">
-                          <div className={`text-base font-bold tabular-nums ${isShort ? 'text-red-600' : 'text-emerald-700'}`}>
+                          <div className={`text-base font-bold tabular-nums ${isShort ? 'text-rose-600' : 'text-emerald-700'}`}>
                             {prod.quantityAvailable}
                           </div>
                           <div className="text-[10px] text-neutral-400">
@@ -476,7 +490,7 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
                     type="number"
                     value={newThreshold}
                     onChange={(e) => setNewThreshold(parseInt(e.target.value) || 0)}
-                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs text-neutral-800 focus:border-emerald-500 focus:outline-none text-red-600 font-bold"
+                    className="w-full rounded-xl border border-neutral-300 p-2.5 text-xs text-neutral-800 focus:border-emerald-500 focus:outline-none font-bold"
                   />
                 </div>
               </div>

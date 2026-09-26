@@ -308,12 +308,14 @@ export default function App() {
                     onClick={() => setFilterShortage(!filterShortage)}
                     className={`rounded-2xl px-3.5 py-2 text-xs font-bold transition-all flex items-center gap-1.5 ${
                       filterShortage
-                        ? 'bg-red-600 text-white shadow-xs'
-                        : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                        ? 'bg-rose-600 text-white shadow-xs'
+                        : shortageCount > 0
+                          ? 'bg-rose-50 text-rose-800 border border-rose-200 hover:bg-rose-100'
+                          : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                     }`}
                   >
                     <AlertTriangle className="h-3.5 w-3.5" />
-                    <span>{t.filterShortage} ({shortageCount})</span>
+                    <span>{t.filterShortage} {shortageCount > 0 ? `(${shortageCount})` : ''}</span>
                   </button>
                 </div>
               </div>
