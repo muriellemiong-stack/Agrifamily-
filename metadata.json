@@ -1,0 +1,6 @@
+{
+  "name": "Agrifamily - Plateforme Agricole Producteurs & Acheteurs",
+  "description": "Agrifamily connecte directement les producteurs locaux et les acheteurs pour réduire les pertes post-récolte, gérer les stocks intelligents et faciliter la commercialisation agricole.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
