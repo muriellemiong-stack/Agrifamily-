@@ -1,4 +1,8 @@
 import { Product, AppNotification, ChatMessage, CommunityComment, SubscriptionPlan, User } from '../types';
+import tomatoesImg from '../assets/images/agri_tomatoes_harvest_1790423474584.jpg';
+import plantainsImg from '../assets/images/agri_plantains_tubers_1790423489320.jpg';
+import tropicalFruitsImg from '../assets/images/agri_tropical_fruits_1790423508479.jpg';
+import maizeGrainsImg from '../assets/images/agri_maize_grains_1790423518976.jpg';
 
 export const INITIAL_USER: User = {
   id: 'usr_prod_1',
@@ -43,7 +47,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     minShortageThreshold: 20, // Shortage alert active!
     harvestDate: '2026-09-24',
     shelfLifeDays: 7,
-    image: '/src/assets/images/agri_tomatoes_harvest_1790423474584.jpg',
+    image: tomatoesImg,
     producerId: 'usr_prod_1',
     producerName: 'Mama Aïssatou Fofana',
     producerLocation: 'Foumbot (Vallée du Noun, Ouest)',
@@ -78,7 +82,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     minShortageThreshold: 15,
     harvestDate: '2026-09-25',
     shelfLifeDays: 14,
-    image: '/src/assets/images/agri_plantains_tubers_1790423489320.jpg',
+    image: plantainsImg,
     producerId: 'usr_prod_2',
     producerName: 'Coopérative Agro-Pastorale d’Obala',
     producerLocation: 'Obala (Région du Centre)',
@@ -112,7 +116,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     minShortageThreshold: 15, // Shortage alert active!
     harvestDate: '2026-09-24',
     shelfLifeDays: 5,
-    image: '/src/assets/images/agri_tropical_fruits_1790423508479.jpg',
+    image: tropicalFruitsImg,
     producerId: 'usr_prod_3',
     producerName: 'Vergers Royaux du Moungo',
     producerLocation: 'Njombé-Penja (Région du Littoral)',
@@ -147,7 +151,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     minShortageThreshold: 25,
     harvestDate: '2026-09-22',
     shelfLifeDays: 60,
-    image: '/src/assets/images/agri_maize_grains_1790423518976.jpg',
+    image: maizeGrainsImg,
     producerId: 'usr_prod_4',
     producerName: 'Union Paysanne de la Bénoué',
     producerLocation: 'Garoua (Région du Nord)',

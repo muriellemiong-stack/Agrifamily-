@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Boxes, AlertTriangle, Sparkles, Plus, Edit2, Check, X, ShieldAlert, ArrowUpRight, TrendingDown } from 'lucide-react';
 import { Product, Language, User } from '../types';
 import { translations } from '../data/translations';
+import defaultHarvestImg from '../assets/images/agri_tomatoes_harvest_1790423474584.jpg';
 
 interface SmartInventoryProps {
   products: Product[];
@@ -84,7 +85,7 @@ export const SmartInventory: React.FC<SmartInventoryProps> = ({
       minShortageThreshold: newThreshold,
       harvestDate: newHarvestDate,
       shelfLifeDays: newShelfLife,
-      image: '/src/assets/images/agri_tomatoes_harvest_1790423474584.jpg',
+      image: defaultHarvestImg,
       producerId: currentUser?.id || 'usr_prod_1',
       producerName: currentUser?.name || 'Mama Aïssatou Fofana',
       producerLocation: currentUser?.location || newOrigin,
